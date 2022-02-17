@@ -26,7 +26,7 @@
             </li>
             <li class="nav-title">{{__('Manage Checklists')}}</li>
             @foreach (\App\Models\ChecklistGroup::with('checklists')->get() as $group)
-            <li class="nav-group">
+            {{-- <li class="nav-group">
                 <a class="nav-link nav-group-toggle" href="{{ route('admin.checklist_groups.edit', $group->id) }}">
                     <svg class="nav-icon">
                         <use xlink:href="{{ asset('vendors/coreui/icons/svg/free.svg#cil-puzzle') }}"></use>
@@ -37,6 +37,13 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('admin.checklists.edit', $checklist->id) }}"><span class="nav-icon"></span> {{$checklist->name}}</a></li>
                     @endforeach
                 </ul>
+            </li> --}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.checklist_groups.edit', $group->id) }}">
+                    <svg class="nav-icon">
+                        <use xlink:href="{{ asset('vendors/coreui/icons/svg/free.svg#cil-puzzle') }}"></use>
+                    </svg> {{$group->name}}
+                </a>
             </li>
             @endforeach
             <li class="nav-item">
